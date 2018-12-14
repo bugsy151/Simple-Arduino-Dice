@@ -1,0 +1,105 @@
+/* Simple Dice
+ *   The simpleDice sketch simulates a dice roll using the random function
+ *   Seven LEDs are arranged in the following order and decared in the sketch to their respective pins
+ *   
+ *   LED 1 *         * LED 4
+ *   LED 2 *    *    * LED 5
+ *   LED 3 *  LED 7  * LED 6
+ *   
+ *   This version does NOT utilze arrays to control how to display a specific number on the LED die.
+ *   
+ *   Created 12/13/18
+*/
+int randomValue;
+int buttonPin=1; //Hook up a 1k ohm resistor to +5v to this pin and a pushbuuton to ground and this pin
+int buttonState;
+
+// Wire up your LEDs to these pins (the variable data) with a 150-220 ohm resistor in series to ground.
+int Led1=2;
+int Led2=3;
+int Led3=4;
+int Led4=5;
+int Led5=6;
+int Led6=7;
+int Led7=8;
+
+void setup() {
+randomSeed(analogRead(0));  //Needed for truely random number generation
+
+}
+
+void loop() 
+  {
+pinMode(buttonPin,INPUT); //Read the pushbutton
+buttonState = digitalRead(buttonPin);
+if (buttonState == LOW)  //This tells the arduino to genberate a new random number
+    {
+      randomValue=random(1,7);
+// Comment the next three lines and change the above IF statement to HIGH for rolling effect
+    }
+if (buttonState == HIGH)  //This takes the random number generated in the last loop and picks the right pattern to display that number
+    {
+  if(randomValue==1)
+      {
+      digitalWrite(Led1,LOW);
+      digitalWrite(Led2,LOW);
+      digitalWrite(Led3,LOW);
+      digitalWrite(Led4,LOW);
+      digitalWrite(Led5,LOW);
+      digitalWrite(Led6,LOW);
+      digitalWrite(Led7,HIGH);
+      }
+  if(randomValue==2)
+      {
+      digitalWrite(Led1,HIGH);
+      digitalWrite(Led2,LOW);
+      digitalWrite(Led3,LOW);
+      digitalWrite(Led4,LOW);
+      digitalWrite(Led5,LOW);
+      digitalWrite(Led6,HIGH);
+      digitalWrite(Led7,LOW);
+      }
+  if(randomValue==3)
+      {
+      digitalWrite(Led1,HIGH);
+      digitalWrite(Led2,LOW);
+      digitalWrite(Led3,LOW);
+      digitalWrite(Led4,LOW);
+      digitalWrite(Led5,LOW);
+      digitalWrite(Led6,HIGH);
+      digitalWrite(Led7,HIGH);
+      }
+  if(randomValue==4)
+      {
+      digitalWrite(Led1,HIGH);
+      digitalWrite(Led2,LOW);
+      digitalWrite(Led3,HIGH);
+      digitalWrite(Led4,HIGH);
+      digitalWrite(Led5,LOW);
+      digitalWrite(Led6,HIGH);
+      digitalWrite(Led7,LOW);
+      }
+  if(randomValue==5)
+      {
+      digitalWrite(Led1,HIGH);
+      digitalWrite(Led2,LOW);
+      digitalWrite(Led3,HIGH);
+      digitalWrite(Led4,HIGH);
+      digitalWrite(Led5,LOW);
+      digitalWrite(Led6,HIGH);
+      digitalWrite(Led7,HIGH);
+      }
+  if(randomValue==6)
+      {
+      digitalWrite(Led1,HIGH);
+      digitalWrite(Led2,HIGH);
+      digitalWrite(Led3,HIGH);
+      digitalWrite(Led4,HIGH);
+      digitalWrite(Led5,HIGH);
+      digitalWrite(Led6,HIGH);
+      digitalWrite(Led7,LOW);
+      }
+
+    }
+delay(30);
+  }
