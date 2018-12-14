@@ -1,0 +1,6 @@
+The simple dice sketch for Arduino is an attempt to teach myself more coding skills without simply copying other code snippets 
+or examples to achieve the goals of this project.
+
+The simple dice sketch aims to create an electronic LED D6 (six sided) die with credible randomiszation to mimic real die throws
+
+This sketch will serve to be the code base for more developed sketches for die throws with more features.
